@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de la voiture{% endblock %}
+
+{% block body %}
+    <h1>Détails de la voiture</h1>
+    <ul>
+        <li>Marque: {{ voiture.marque }}</li>
+        <li>Modèle: {{ voiture.modele }}</li>
+        <li>Couleur: {{ voiture.couleur }}</li>
+        <li>Immatriculation: {{ voiture.immatriculation }}</li>
+        <li>Nombre de places: {{ voiture.nombrePlaces }}</li>
+    </ul>
+
+    <a href="{{ path('voiture_edit', {'id': voiture.id}) }}">Modifier</a> |
+    <a href="{{ path('voiture_delete', {'id': voiture.id}) }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette voiture ?')">Supprimer</a>
+{% endblock %}
+
+</body>
+</html>

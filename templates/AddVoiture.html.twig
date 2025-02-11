@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une voiture{% endblock %}
+
+{% block body %}
+<h1>Ajouter une nouvelle voiture</h1>
+
+{{ form_start(form) }}
+{{ form_row(form.marque) }}
+{{ form_row(form.modele) }}
+{{ form_row(form.couleur) }}
+{{ form_row(form.immatriculation) }}
+{{ form_row(form.nombrePlaces) }}
+{{ form_row(form.submit) }}
+{{ form_end(form) }}
+{% endblock %}
+
+</body>
+</html>

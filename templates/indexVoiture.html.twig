@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html.twig' %}
+
+{% block title %}Voitures{% endblock %}
+
+{% block body %}
+    <h1>Liste des voitures</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Marque</th>
+            <th>Modèle</th>
+            <th>Couleur</th>
+            <th>Immatriculation</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for voiture in voitures %}
+            <tr>
+                <td>{{ voiture.marque }}</td>
+                <td>{{ voiture.modele }}</td>
+                <td>{{ voiture.couleur }}</td>
+                <td>{{ voiture.immatriculation }}</td>
+                <td>
+                    <a href="{{ path('voiture_show', {'id': voiture.id}) }}">Voir</a> |
+                    <a href="{{ path('voiture_edit', {'id': voiture.id}) }}">Modifier</a> |
+                    <a href="{{ path('voiture_delete', {'id': voiture.id}) }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette voiture ?')">Supprimer</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path('voiture_new') }}">Ajouter une nouvelle voiture</a>
+{% endblock %}
+
+</body>
+</html>
